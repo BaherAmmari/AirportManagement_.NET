@@ -1,0 +1,23 @@
+﻿@model IEnumerable<AM.ApplicationCore.Domain.Flight>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" asp-controller="Plane">Create Plane</a>
+</p>
+<form asp-action="index">
+    <fieldset>
+        <legend> Recherche</legend>
+        Saisir une date de départ :
+        <input type="date" name="dateDepart" />
+        <input type="submit" value="Serach" />
+    </fieldset>
+</form>
+@foreach(var item in Model)
+@Html.Partial("_Details", item)
